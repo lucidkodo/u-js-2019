@@ -1,2 +1,3 @@
-# u-js-2019
-Course on Udemy - Notes and other instructions
+# New content revisit
+
+Course link: [Complete JS Course - Jonas](https://www.udemy.com/the-complete-javascript-course/)

@@ -1,4 +1,4 @@
-class team {
+class Team {
   constructor (name, scores) {
     this.name = name
     this.scores = scores
@@ -6,24 +6,24 @@ class team {
   }
 }
 
-const john = new team('john', [89, 120, 103])
-const mike = new team('mike', [116, 94, 123])
-const mary = new team('mary', [97, 134, 105])
+const john = new Team('john', [89, 120, 103])
+const mike = new Team('mike', [116, 94, 123])
+const mary = new Team('mary', [97, 134, 105])
+const lamb = new Team('lamb', [97, 134, 105])
 
-const teams = [ john, mike, mary ]
-// console.log(teams) // [mary, mike, john]
+const teams = [ mary, john, mike, lamb ]
+teams.sort((teamA, teamB) => teamB.avg - teamA.avg ) // descending
 
-teams.sort((teamA, teamB) => {
-  return teamB.avg - teamA.avg // descending
-})
+// create a big object out of the whole array
+const teamObj = {}
+for (let i = 0; i < teams.length; i++) {
+  const team = teams[i]
 
-// since you've sorted, now check if there's any draws
-const scores = teams.map(team => {
-  return {
-    name: team[name],
-    avgScore: team[avg]
+  if (teamObj['k' + team.avg] === undefined) { // if this score doesn't exist
+    teamObj['k' + team.avg] = []
   }
-})
+  teamObj['k' + team.avg].push(team.name)
+}
 
-
-console.log(scores)
+console.log(teams)
+console.log(teamObj)

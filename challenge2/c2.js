@@ -6,13 +6,15 @@ class Team {
   }
 }
 
-const john = new Team('john', [89, 120, 103])
-const mike = new Team('mike', [116, 94, 123])
-const mary = new Team('mary', [97, 134, 105])
-const lamb = new Team('lamb', [97, 134, 105])
+const teams = [
+  new Team('john', [89, 120, 103]),
+  new Team('mike', [116, 94, 123]),
+  // new Team('mary', [97, 134, 105]),
+  new Team('lamb', [97, 134, 105])
+]
 
-const teams = [ mary, john, mike, lamb ]
 teams.sort((teamA, teamB) => teamB.avg - teamA.avg )
+
 const teamObj = {}
 
 for (let i = 0; i < teams.length; i++) {
@@ -25,7 +27,6 @@ for (let i = 0; i < teams.length; i++) {
 }
 
 const allScores = Object.keys(teamObj).sort((a, b) => b - a)
-// [ '112', '111', '104' ]
 
 for (let i = 0; i < allScores.length; i++) {
   const score = allScores[i]

@@ -12,19 +12,27 @@ const mary = new Team('mary', [97, 134, 105])
 const lamb = new Team('lamb', [97, 134, 105])
 
 const teams = [ mary, john, mike, lamb ]
-teams.sort((teamA, teamB) => teamB.avg - teamA.avg ) // descending
-
-// create a big object out of the whole array
+teams.sort((teamA, teamB) => teamB.avg - teamA.avg )
 const teamObj = {}
 
 for (let i = 0; i < teams.length; i++) {
   const team = teams[i]
 
-  if (teamObj['k' + team.avg] === undefined) { // if this score doesn't exist
-    teamObj['k' + team.avg] = []
+  if (teamObj[team.avg] === undefined) {
+    teamObj[team.avg] = []
   }
-  teamObj['k' + team.avg].push(team.name)
+  teamObj[team.avg].push(team.name)
 }
 
-console.log(teams)
-console.log(teamObj)
+const allScores = Object.keys(teamObj).sort((a, b) => b - a)
+// [ '112', '111', '104' ]
+
+for (let i = 0; i < allScores.length; i++) {
+  const score = allScores[i]
+
+  if (teamObj[score].length > 1) {
+    console.log(i + 1 + '. ' + score + ': (Draw between) ' + teamObj[score].toString())
+  } else {
+    console.log(i + 1 + '. ' + score + ': ' + teamObj[score].toString())
+  }
+}

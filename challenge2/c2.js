@@ -16,6 +16,7 @@ teams.sort((teamA, teamB) => teamB.avg - teamA.avg ) // descending
 
 // create a big object out of the whole array
 const teamObj = {}
+
 for (let i = 0; i < teams.length; i++) {
   const team = teams[i]
 

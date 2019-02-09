@@ -1,17 +1,27 @@
-const calc = bill => {
-  let tip
+const showBill = bills => {
+  const tips = []
+  const totals = []
 
-  if (bill < 50) {
-    tip = 20
-  } else if (50 < bill && bill < 200) {
-    tip = 15
-  } else if (bill > 200) {
-    tip = 10
+  for (let i = 0; i < bills.length; i++) {
+    const bill = bills[i]
+
+    if (bill < 50) {
+      tips.push(bill * 0.2)
+      totals.push(bill * 1.2)
+    } else if (50 < bill && bill < 200) {
+      tips.push(bill * 0.15)
+      totals.push(bill * 1.15)
+    } else if (bill > 200) {
+      tips.push(bill * 0.1)
+      totals.push(bill * 1.1)
+    }
   }
 
-  console.log('Bill: €' + bill + '\t' + tip + '% tip: €' + bill * tip / 100)
+  return {
+    tips,
+    totals
+  }
 }
 
-calc(201)
-calc(199)
-calc(49)
+const price = showBill([49, 199, 201])
+console.log(price)
